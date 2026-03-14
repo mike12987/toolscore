@@ -284,9 +284,9 @@
             .hero h1 { font-size: 28px; }
             .vs-hero { flex-direction: column; gap: 12px; }
             .vs-hero-logo { width: 52px; height: 52px; font-size: 20px; }
-            .score-row { grid-template-columns: 1fr; gap: 12px; padding: 12px; }
-            .score-row-label { grid-column: 1; }
-            .score-cell { grid-column: 1; text-align: left; }
+            
+            
+            
             .price-grid { grid-template-columns: 1fr; }
             .use-cases { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -294,7 +294,62 @@
             .feature-table th, .feature-table td { padding: 10px; }
             .detail-section { padding: 24px; }
             .nav-links { display: none; }
-            .related-grid { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr;
+            .score-grid { border: none; gap: 12px; }
+            .score-row { 
+                grid-template-columns: 1fr; 
+                gap: 0; 
+                padding: 0; 
+                border: 1px solid var(--slate-200); 
+                border-radius: 12px; 
+                overflow: hidden;
+                background: white;
+                border-bottom: none;
+            }
+            .score-row:nth-child(odd) { background: white; }
+            .score-row-label { 
+                background: var(--slate-50); 
+                padding: 10px 14px; 
+                font-size: 13px; 
+                font-weight: 700;
+                border-bottom: 1px solid var(--slate-200);
+            }
+            .score-row .score-cell {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 14px;
+                text-align: left;
+                font-size: 18px;
+            }
+            .score-row .score-cell::before {
+                content: attr(data-product);
+                font-size: 12px;
+                font-weight: 600;
+                color: var(--slate-500);
+                min-width: 80px;
+            }
+            .score-row .score-cell::after {
+                content: '';
+                flex: 1;
+                height: 6px;
+                border-radius: 3px;
+                background: var(--slate-200);
+            }
+            .score-row .score-cell.score-quickbooks::after {
+                background: linear-gradient(90deg, #2CA01C var(--bar-pct, 80%), var(--slate-200) var(--bar-pct, 80%));
+            }
+            .score-row .score-cell.score-xero::after {
+                background: linear-gradient(90deg, #13B5EA var(--bar-pct, 80%), var(--slate-200) var(--bar-pct, 80%));
+            }
+            .score-winner {
+                padding: 8px 14px;
+                font-size: 12px;
+                justify-content: flex-start;
+                background: var(--slate-50);
+                border-top: 1px solid var(--slate-100);
+            }
+        }
         }
     
     .table-scroll-wrapper {
@@ -357,50 +412,50 @@
         <div class="score-grid">
             <div class="score-row">
                 <div class="score-row-label">Overall Rating</div>
-                <div class="score-cell score-quickbooks">9.5</div>
-                <div class="score-cell score-xero">9.2</div>
+                <div class="score-cell score-quickbooks" data-product="QuickBooks">9.5</div>
+                <div class="score-cell score-xero" data-product="Xero">9.2</div>
                 <div class="score-winner quickbooks-wins"><span class="winner-badge quickbooks">✓</span> QuickBooks</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Ease of Use</div>
-                <div class="score-cell score-quickbooks">8.6</div>
-                <div class="score-cell score-xero">9.1</div>
+                <div class="score-cell score-quickbooks" data-product="QuickBooks">8.6</div>
+                <div class="score-cell score-xero" data-product="Xero">9.1</div>
                 <div class="score-winner xero-wins"><span class="winner-badge xero">✓</span> Xero</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Features & Customization</div>
-                <div class="score-cell score-quickbooks">9.3</div>
-                <div class="score-cell score-xero">8.9</div>
+                <div class="score-cell score-quickbooks" data-product="QuickBooks">9.3</div>
+                <div class="score-cell score-xero" data-product="Xero">8.9</div>
                 <div class="score-winner quickbooks-wins"><span class="winner-badge quickbooks">✓</span> QuickBooks</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Pricing Value</div>
-                <div class="score-cell score-quickbooks">8.2</div>
-                <div class="score-cell score-xero">9.4</div>
+                <div class="score-cell score-quickbooks" data-product="QuickBooks">8.2</div>
+                <div class="score-cell score-xero" data-product="Xero">9.4</div>
                 <div class="score-winner xero-wins"><span class="winner-badge xero">✓</span> Xero</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Payroll & Tax</div>
-                <div class="score-cell score-quickbooks">9.7</div>
-                <div class="score-cell score-xero">8.1</div>
+                <div class="score-cell score-quickbooks" data-product="QuickBooks">9.7</div>
+                <div class="score-cell score-xero" data-product="Xero">8.1</div>
                 <div class="score-winner quickbooks-wins"><span class="winner-badge quickbooks">✓</span> QuickBooks</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Reporting & Analytics</div>
-                <div class="score-cell score-quickbooks">9.1</div>
-                <div class="score-cell score-xero">9.3</div>
+                <div class="score-cell score-quickbooks" data-product="QuickBooks">9.1</div>
+                <div class="score-cell score-xero" data-product="Xero">9.3</div>
                 <div class="score-winner xero-wins"><span class="winner-badge xero">✓</span> Xero</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Integrations & Ecosystem</div>
-                <div class="score-cell score-quickbooks">9.2</div>
-                <div class="score-cell score-xero">9.0</div>
+                <div class="score-cell score-quickbooks" data-product="QuickBooks">9.2</div>
+                <div class="score-cell score-xero" data-product="Xero">9.0</div>
                 <div class="score-winner quickbooks-wins"><span class="winner-badge quickbooks">✓</span> QuickBooks</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Mobile App & Support</div>
-                <div class="score-cell score-quickbooks">9.0</div>
-                <div class="score-cell score-xero">9.2</div>
+                <div class="score-cell score-quickbooks" data-product="QuickBooks">9.0</div>
+                <div class="score-cell score-xero" data-product="Xero">9.2</div>
                 <div class="score-winner xero-wins"><span class="winner-badge xero">✓</span> Xero</div>
             </div>
         </div>
@@ -838,5 +893,14 @@ document.querySelectorAll('.faq-q').forEach(q => {
 });
 </script>
 
+
+    <script>
+    document.querySelectorAll('.score-cell').forEach(cell => {
+        const score = parseFloat(cell.textContent);
+        if (!isNaN(score)) {
+            cell.style.setProperty('--bar-pct', (score * 10) + '%');
+        }
+    });
+    </script>
 </body>
 </html>

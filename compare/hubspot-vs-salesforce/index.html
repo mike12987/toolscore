@@ -284,9 +284,9 @@
             .hero h1 { font-size: 28px; }
             .vs-hero { flex-direction: column; gap: 12px; }
             .vs-hero-logo { width: 52px; height: 52px; font-size: 20px; }
-            .score-row { grid-template-columns: 1fr; gap: 12px; padding: 12px; }
-            .score-row-label { grid-column: 1; }
-            .score-cell { grid-column: 1; text-align: left; }
+            
+            
+            
             .price-grid { grid-template-columns: 1fr; }
             .use-cases { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -294,7 +294,62 @@
             .feature-table th, .feature-table td { padding: 10px; }
             .detail-section { padding: 24px; }
             .nav-links { display: none; }
-            .related-grid { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr;
+            .score-grid { border: none; gap: 12px; }
+            .score-row { 
+                grid-template-columns: 1fr; 
+                gap: 0; 
+                padding: 0; 
+                border: 1px solid var(--slate-200); 
+                border-radius: 12px; 
+                overflow: hidden;
+                background: white;
+                border-bottom: none;
+            }
+            .score-row:nth-child(odd) { background: white; }
+            .score-row-label { 
+                background: var(--slate-50); 
+                padding: 10px 14px; 
+                font-size: 13px; 
+                font-weight: 700;
+                border-bottom: 1px solid var(--slate-200);
+            }
+            .score-row .score-cell {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 14px;
+                text-align: left;
+                font-size: 18px;
+            }
+            .score-row .score-cell::before {
+                content: attr(data-product);
+                font-size: 12px;
+                font-weight: 600;
+                color: var(--slate-500);
+                min-width: 80px;
+            }
+            .score-row .score-cell::after {
+                content: '';
+                flex: 1;
+                height: 6px;
+                border-radius: 3px;
+                background: var(--slate-200);
+            }
+            .score-row .score-cell.score-hubspot::after {
+                background: linear-gradient(90deg, #FF7A59 var(--bar-pct, 80%), var(--slate-200) var(--bar-pct, 80%));
+            }
+            .score-row .score-cell.score-salesforce::after {
+                background: linear-gradient(90deg, #00A1E0 var(--bar-pct, 80%), var(--slate-200) var(--bar-pct, 80%));
+            }
+            .score-winner {
+                padding: 8px 14px;
+                font-size: 12px;
+                justify-content: flex-start;
+                background: var(--slate-50);
+                border-top: 1px solid var(--slate-100);
+            }
+        }
         }
     
     .table-scroll-wrapper {
@@ -357,50 +412,50 @@
         <div class="score-grid">
             <div class="score-row">
                 <div class="score-row-label">Overall Rating</div>
-                <div class="score-cell score-hubspot">9.1</div>
-                <div class="score-cell score-salesforce">9.3</div>
+                <div class="score-cell score-hubspot" data-product="HubSpot">9.1</div>
+                <div class="score-cell score-salesforce" data-product="Salesforce">9.3</div>
                 <div class="score-winner salesforce-wins"><span class="winner-badge salesforce">✓</span> Salesforce</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Ease of Use</div>
-                <div class="score-cell score-hubspot">9.4</div>
-                <div class="score-cell score-salesforce">7.8</div>
+                <div class="score-cell score-hubspot" data-product="HubSpot">9.4</div>
+                <div class="score-cell score-salesforce" data-product="Salesforce">7.8</div>
                 <div class="score-winner hubspot-wins"><span class="winner-badge hubspot">✓</span> HubSpot</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Features & Customization</div>
-                <div class="score-cell score-hubspot">8.7</div>
-                <div class="score-cell score-salesforce">9.5</div>
+                <div class="score-cell score-hubspot" data-product="HubSpot">8.7</div>
+                <div class="score-cell score-salesforce" data-product="Salesforce">9.5</div>
                 <div class="score-winner salesforce-wins"><span class="winner-badge salesforce">✓</span> Salesforce</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Pricing Value</div>
-                <div class="score-cell score-hubspot">9.2</div>
-                <div class="score-cell score-salesforce">7.5</div>
+                <div class="score-cell score-hubspot" data-product="HubSpot">9.2</div>
+                <div class="score-cell score-salesforce" data-product="Salesforce">7.5</div>
                 <div class="score-winner hubspot-wins"><span class="winner-badge hubspot">✓</span> HubSpot</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">AI & Automation</div>
-                <div class="score-cell score-hubspot">8.4</div>
-                <div class="score-cell score-salesforce">9.2</div>
+                <div class="score-cell score-hubspot" data-product="HubSpot">8.4</div>
+                <div class="score-cell score-salesforce" data-product="Salesforce">9.2</div>
                 <div class="score-winner salesforce-wins"><span class="winner-badge salesforce">✓</span> Salesforce</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Integrations & Ecosystem</div>
-                <div class="score-cell score-hubspot">8.9</div>
-                <div class="score-cell score-salesforce">9.6</div>
+                <div class="score-cell score-hubspot" data-product="HubSpot">8.9</div>
+                <div class="score-cell score-salesforce" data-product="Salesforce">9.6</div>
                 <div class="score-winner salesforce-wins"><span class="winner-badge salesforce">✓</span> Salesforce</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Scalability</div>
-                <div class="score-cell score-hubspot">8.8</div>
-                <div class="score-cell score-salesforce">9.7</div>
+                <div class="score-cell score-hubspot" data-product="HubSpot">8.8</div>
+                <div class="score-cell score-salesforce" data-product="Salesforce">9.7</div>
                 <div class="score-winner salesforce-wins"><span class="winner-badge salesforce">✓</span> Salesforce</div>
             </div>
             <div class="score-row">
                 <div class="score-row-label">Support & Documentation</div>
-                <div class="score-cell score-hubspot">9.0</div>
-                <div class="score-cell score-salesforce">8.6</div>
+                <div class="score-cell score-hubspot" data-product="HubSpot">9.0</div>
+                <div class="score-cell score-salesforce" data-product="Salesforce">8.6</div>
                 <div class="score-winner hubspot-wins"><span class="winner-badge hubspot">✓</span> HubSpot</div>
             </div>
         </div>
@@ -844,5 +899,14 @@ document.querySelectorAll('.faq-q').forEach(q => {
 });
 </script>
 
+
+    <script>
+    document.querySelectorAll('.score-cell').forEach(cell => {
+        const score = parseFloat(cell.textContent);
+        if (!isNaN(score)) {
+            cell.style.setProperty('--bar-pct', (score * 10) + '%');
+        }
+    });
+    </script>
 </body>
 </html>
