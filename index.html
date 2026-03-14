@@ -146,14 +146,46 @@
         .guide-card p { font-size: 13px; color: var(--slate-500); line-height: 1.6; margin-bottom: 10px; }
         .guide-link { font-size: 13px; font-weight: 600; color: var(--indigo); }
 
-        /* NEWSLETTER */
+        /* NEWSLETTER / PREFERENCE CENTER */
         .newsletter { background: linear-gradient(135deg, var(--indigo-dark), var(--violet)); color: white; padding: 64px 0; text-align: center; }
         .newsletter h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
-        .newsletter p { font-size: 16px; opacity: .85; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+        .newsletter p { font-size: 16px; opacity: .85; margin-bottom: 28px; max-width: 540px; margin-left: auto; margin-right: auto; }
         .newsletter-form { display: flex; gap: 8px; max-width: 440px; margin: 0 auto; }
-        .newsletter-form input { flex: 1; padding: 14px 18px; border: none; border-radius: var(--radius-sm); font-size: 15px; outline: none; }
+        .newsletter-form input[type="email"] { flex: 1; padding: 14px 18px; border: none; border-radius: var(--radius-sm); font-size: 15px; outline: none; color: #0f172a; }
         .newsletter-form .btn { background: var(--amber); color: var(--slate-900); border: none; }
         .newsletter-form .btn:hover { background: #D97706; }
+
+        /* Preference pills */
+        .pref-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; opacity: .75; margin-bottom: 14px; }
+        .pref-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 640px; margin: 0 auto 28px; }
+        .pref-pill { display: inline-flex; align-items: center; gap: 7px; padding: 10px 18px; border-radius: 40px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; user-select: none; border: 2px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: rgba(255,255,255,.85); }
+        .pref-pill:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.12); }
+        .pref-pill.selected { border-color: var(--amber); background: rgba(245,158,11,.15); color: white; }
+        .pref-pill .pill-icon { font-size: 16px; line-height: 1; }
+        .pref-pill .pill-check { width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(255,255,255,.3); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; transition: all .2s; flex-shrink: 0; }
+        .pref-pill.selected .pill-check { background: var(--amber); border-color: var(--amber); color: var(--slate-900); }
+
+        /* Channel preferences */
+        .channel-section { max-width: 440px; margin: 0 auto 24px; }
+        .channel-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; opacity: .6; margin-bottom: 10px; }
+        .channel-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .channel-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all .2s; user-select: none; border: 1.5px solid rgba(255,255,255,.2); background: rgba(255,255,255,.05); color: rgba(255,255,255,.7); }
+        .channel-pill:hover { border-color: rgba(255,255,255,.4); }
+        .channel-pill.selected { border-color: #34d399; background: rgba(52,211,153,.12); color: white; }
+        .channel-pill .ch-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.3); transition: all .2s; }
+        .channel-pill.selected .ch-dot { background: #34d399; }
+
+        /* Step indicator */
+        .signup-steps { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 28px; }
+        .step-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.2); transition: all .3s; }
+        .step-dot.active { background: var(--amber); width: 24px; border-radius: 4px; }
+        .step-dot.done { background: #34d399; }
+
+        @media (max-width: 768px) {
+            .pref-grid { gap: 8px; }
+            .pref-pill { padding: 8px 14px; font-size: 13px; }
+            .newsletter h2 { font-size: 26px; }
+        }
 
         /* FOOTER */
         .footer { background: var(--slate-900); color: var(--slate-300); padding: 56px 0 28px; }
@@ -534,17 +566,106 @@ Analytics</span>
     </div>
 </section>
 
-<!-- Newsletter -->
-<section class="newsletter">
+<!-- Communications Preference Center -->
+<section class="newsletter" id="signup-section">
     <div class="container">
-        <h2>The ToolScore Weekly</h2>
-        <p>One email per week. New tool launches, pricing changes, and honest takes. No sponsored content, ever.</p>
-        <div class="newsletter-form" id="nl-form">
-            <input type="email" id="nl-email" placeholder="your@email.com" required>
-            <button class="btn" id="nl-btn">Subscribe</button>
+        <!-- Step indicator -->
+        <div class="signup-steps" id="signup-steps">
+            <div class="step-dot active" data-step="1"></div>
+            <div class="step-dot" data-step="2"></div>
+            <div class="step-dot" data-step="3"></div>
         </div>
-        <p id="nl-success" style="display:none;margin-top:12px;font-size:14px;opacity:0.9;">You're in. We'll send you the first issue soon.</p>
-        <p id="nl-error" style="display:none;margin-top:12px;font-size:14px;color:#fca5a5;">Please enter a valid email address.</p>
+
+        <!-- STEP 1: Category Interests -->
+        <div id="step-1">
+            <h2>What software are you researching?</h2>
+            <p>Select all that apply. We'll send you tailored reviews, pricing updates, and comparison guides for just the categories you care about.</p>
+            <div class="pref-grid" id="pref-grid">
+                <div class="pref-pill" data-category="project-management">
+                    <span class="pill-icon">&#9776;</span>
+                    <span>Project Management</span>
+                    <span class="pill-check"></span>
+                </div>
+                <div class="pref-pill" data-category="crm">
+                    <span class="pill-icon">&#128101;</span>
+                    <span>CRM &amp; Sales</span>
+                    <span class="pill-check"></span>
+                </div>
+                <div class="pref-pill" data-category="email-marketing">
+                    <span class="pill-icon">&#9993;</span>
+                    <span>Email Marketing</span>
+                    <span class="pill-check"></span>
+                </div>
+                <div class="pref-pill" data-category="accounting">
+                    <span class="pill-icon">&#128200;</span>
+                    <span>Accounting</span>
+                    <span class="pill-check"></span>
+                </div>
+                <div class="pref-pill" data-category="hr">
+                    <span class="pill-icon">&#128100;</span>
+                    <span>HR &amp; Payroll</span>
+                    <span class="pill-check"></span>
+                </div>
+                <div class="pref-pill" data-category="marketing-automation">
+                    <span class="pill-icon">&#9881;</span>
+                    <span>Marketing Automation</span>
+                    <span class="pill-check"></span>
+                </div>
+                <div class="pref-pill" data-category="customer-support">
+                    <span class="pill-icon">&#128172;</span>
+                    <span>Help Desk &amp; Support</span>
+                    <span class="pill-check"></span>
+                </div>
+                <div class="pref-pill" data-category="all">
+                    <span class="pill-icon">&#10024;</span>
+                    <span>All Categories</span>
+                    <span class="pill-check"></span>
+                </div>
+            </div>
+            <button class="btn" id="step1-next" style="background:var(--amber);color:var(--slate-900);border:none;padding:14px 32px;font-size:15px;border-radius:8px;opacity:.5;cursor:not-allowed;" disabled>Select at least one to continue</button>
+        </div>
+
+        <!-- STEP 2: Contact + Channel Preferences -->
+        <div id="step-2" style="display:none;">
+            <h2>How should we reach you?</h2>
+            <p>Choose your preferred channels. We respect your inbox and will never sell your data.</p>
+            <div class="newsletter-form" id="nl-form" style="margin-bottom:20px;">
+                <input type="email" id="nl-email" placeholder="your@email.com" required>
+            </div>
+            <div class="channel-section">
+                <div class="channel-label">Preferred channels</div>
+                <div class="channel-row" id="channel-row">
+                    <div class="channel-pill selected" data-channel="email">
+                        <span class="ch-dot"></span>
+                        <span>Email</span>
+                    </div>
+                    <div class="channel-pill" data-channel="sms">
+                        <span class="ch-dot"></span>
+                        <span>SMS</span>
+                    </div>
+                    <div class="channel-pill" data-channel="linkedin">
+                        <span class="ch-dot"></span>
+                        <span>LinkedIn</span>
+                    </div>
+                    <div class="channel-pill" data-channel="meta">
+                        <span class="ch-dot"></span>
+                        <span>Meta / Instagram</span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:24px;">
+                <button class="btn" id="step2-submit" style="background:var(--amber);color:var(--slate-900);border:none;padding:14px 32px;font-size:15px;border-radius:8px;">Get My Personalized Updates</button>
+            </div>
+            <p id="nl-error" style="display:none;margin-top:12px;font-size:14px;color:#fca5a5;">Please enter a valid email address.</p>
+        </div>
+
+        <!-- STEP 3: Confirmation -->
+        <div id="step-3" style="display:none;">
+            <div style="font-size:48px;margin-bottom:16px;">&#10003;</div>
+            <h2>You're all set.</h2>
+            <p id="confirm-msg">We'll send tailored reviews and pricing updates for your selected categories.</p>
+            <div id="confirm-categories" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px;"></div>
+        </div>
     </div>
 </section>
 
@@ -694,21 +815,114 @@ Analytics</span>
     });
 })();
 
-// Newsletter signup
+// Communications Preference Center
 (function() {
+    const categoryNames = {
+        'project-management': 'Project Management',
+        'crm': 'CRM & Sales',
+        'email-marketing': 'Email Marketing',
+        'accounting': 'Accounting',
+        'hr': 'HR & Payroll',
+        'marketing-automation': 'Marketing Automation',
+        'customer-support': 'Help Desk & Support',
+        'all': 'All Categories'
+    };
+
+    let selectedCategories = [];
+    let selectedChannels = ['email'];
+
+    // Step elements
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const step3 = document.getElementById('step-3');
+    const stepDots = document.querySelectorAll('.step-dot');
+    const step1Next = document.getElementById('step1-next');
+    const step2Submit = document.getElementById('step2-submit');
     const emailInput = document.getElementById('nl-email');
-    const nlBtn = document.getElementById('nl-btn');
-    const nlForm = document.getElementById('nl-form');
-    const nlSuccess = document.getElementById('nl-success');
     const nlError = document.getElementById('nl-error');
 
-    if (!nlBtn) return;
+    function updateSteps(activeStep) {
+        stepDots.forEach(dot => {
+            const s = parseInt(dot.getAttribute('data-step'));
+            dot.classList.remove('active', 'done');
+            if (s < activeStep) dot.classList.add('done');
+            if (s === activeStep) dot.classList.add('active');
+        });
+    }
 
+    // Category pill selection
+    document.querySelectorAll('#pref-grid .pref-pill').forEach(pill => {
+        pill.addEventListener('click', function() {
+            const cat = this.getAttribute('data-category');
+
+            if (cat === 'all') {
+                // Toggle all
+                const allSelected = this.classList.contains('selected');
+                document.querySelectorAll('#pref-grid .pref-pill').forEach(p => {
+                    if (allSelected) {
+                        p.classList.remove('selected');
+                    } else {
+                        p.classList.add('selected');
+                    }
+                });
+                selectedCategories = allSelected ? [] : Object.keys(categoryNames);
+            } else {
+                this.classList.toggle('selected');
+                // Update "All" pill
+                const allPill = document.querySelector('[data-category="all"]');
+                if (this.classList.contains('selected')) {
+                    if (!selectedCategories.includes(cat)) selectedCategories.push(cat);
+                } else {
+                    selectedCategories = selectedCategories.filter(c => c !== cat);
+                    allPill.classList.remove('selected');
+                    selectedCategories = selectedCategories.filter(c => c !== 'all');
+                }
+                // Check if all non-"all" pills are selected
+                const nonAllPills = document.querySelectorAll('#pref-grid .pref-pill:not([data-category="all"])');
+                const allNonAllSelected = Array.from(nonAllPills).every(p => p.classList.contains('selected'));
+                if (allNonAllSelected) {
+                    allPill.classList.add('selected');
+                    if (!selectedCategories.includes('all')) selectedCategories.push('all');
+                }
+            }
+
+            // Update button state
+            const anySelected = document.querySelectorAll('#pref-grid .pref-pill.selected').length > 0;
+            step1Next.disabled = !anySelected;
+            step1Next.style.opacity = anySelected ? '1' : '.5';
+            step1Next.style.cursor = anySelected ? 'pointer' : 'not-allowed';
+            step1Next.textContent = anySelected ? 'Continue' : 'Select at least one to continue';
+        });
+    });
+
+    // Channel pill selection
+    document.querySelectorAll('#channel-row .channel-pill').forEach(pill => {
+        pill.addEventListener('click', function() {
+            const ch = this.getAttribute('data-channel');
+            this.classList.toggle('selected');
+            if (this.classList.contains('selected')) {
+                if (!selectedChannels.includes(ch)) selectedChannels.push(ch);
+            } else {
+                selectedChannels = selectedChannels.filter(c => c !== ch);
+            }
+        });
+    });
+
+    // Step 1 → Step 2
+    step1Next.addEventListener('click', function() {
+        if (this.disabled) return;
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+        updateSteps(2);
+        emailInput.focus();
+    });
+
+    // Step 2 → Step 3 (submit)
     function isValidEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    function handleSubscribe() {
+    function handleSubmit() {
         const email = emailInput.value.trim();
         nlError.style.display = 'none';
 
@@ -717,22 +931,44 @@ Analytics</span>
             return;
         }
 
-        // Store locally (will be replaced with real API later)
+        // Store preferences locally (will connect to real API / email service later)
+        const prefs = {
+            email: email,
+            categories: selectedCategories.filter(c => c !== 'all'),
+            channels: selectedChannels,
+            subscribedAt: new Date().toISOString()
+        };
+
         try {
-            const subs = JSON.parse(localStorage.getItem('ts_subscribers') || '[]');
-            if (!subs.includes(email)) {
-                subs.push(email);
-                localStorage.setItem('ts_subscribers', JSON.stringify(subs));
-            }
+            const existing = JSON.parse(localStorage.getItem('ts_preferences') || '[]');
+            existing.push(prefs);
+            localStorage.setItem('ts_preferences', JSON.stringify(existing));
         } catch(e) {}
 
-        nlForm.style.display = 'none';
-        nlSuccess.style.display = 'block';
+        // Show confirmation
+        step2.style.display = 'none';
+        step3.style.display = 'block';
+        updateSteps(3);
+
+        // Show selected categories as confirmation pills
+        const confirmContainer = document.getElementById('confirm-categories');
+        const catsToShow = selectedCategories.filter(c => c !== 'all');
+        const displayCats = catsToShow.length === 7 ? ['All Categories'] : catsToShow.map(c => categoryNames[c] || c);
+        confirmContainer.innerHTML = displayCats.map(name =>
+            '<span style="display:inline-block;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);font-size:13px;font-weight:600;">' + name + '</span>'
+        ).join('') + selectedChannels.map(ch =>
+            '<span style="display:inline-block;padding:6px 14px;border-radius:20px;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);font-size:12px;font-weight:600;color:#34d399;">via ' + ch.charAt(0).toUpperCase() + ch.slice(1) + '</span>'
+        ).join('');
+
+        document.getElementById('confirm-msg').textContent =
+            'We\'ll send tailored reviews and pricing updates for ' +
+            (displayCats.length === 1 ? displayCats[0] : displayCats.slice(0, -1).join(', ') + ' and ' + displayCats[displayCats.length - 1]) +
+            '. First issue drops this week.';
     }
 
-    nlBtn.addEventListener('click', handleSubscribe);
+    step2Submit.addEventListener('click', handleSubmit);
     emailInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') { e.preventDefault(); handleSubscribe(); }
+        if (e.key === 'Enter') { e.preventDefault(); handleSubmit(); }
     });
 })();
 </script>
