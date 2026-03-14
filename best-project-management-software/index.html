@@ -282,7 +282,7 @@
 
         /* FOOTER */
         .footer { background: var(--slate-900); color: var(--slate-300); padding: 56px 0 28px; margin-top: 64px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
         .footer-brand p { font-size: 13px; opacity: .6; line-height: 1.7; margin-top: 12px; }
         .footer-col h4 { font-size: 12px; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
         .footer-col a { display: block; font-size: 13px; padding: 3px 0; opacity: .5; transition: opacity .15s; }
@@ -296,7 +296,7 @@
             .nav-links { display: none; }
             .quick-picks-grid { grid-template-columns: 1fr; }
             .pros-cons { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; }
             .comparison-table th, .comparison-table td { padding: 12px; font-size: 12px; }
             .ranking-card-header { padding: 20px; }
             .ranking-card-body { padding: 20px; }
@@ -315,13 +315,10 @@
             <span>ToolScore</span>
         </a>
         <div class="nav-links">
-            <span class="nav-link" style="cursor:default;opacity:0.6">Categories</span>
             <a href="/best-project-management-software/" class="nav-link">Reviews</a>
             <a href="/compare/monday-vs-asana/" class="nav-link">Comparisons</a>
             <a href="/best-crm-software/" class="nav-link">Guides</a>
-            <span class="nav-link" style="cursor:default;opacity:0.6">AI Tools</span>
         </div>
-        <span class="btn btn-primary" style="cursor:default;opacity:0.6">Submit a Tool</span>
     </div>
 </nav>
 
@@ -330,7 +327,6 @@
         <div class="breadcrumb">
             <a href="/">Home</a>
             <span>/</span>
-            <span style="cursor:default;opacity:0.6">Project Management</span>
             <span>/</span>
             <span>Best PM Software 2026</span>
         </div>
@@ -474,7 +470,6 @@
             </div>
         </div>
         <div class="ranking-card-footer">
-            <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
             <a href="https://monday.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free →</a>
         </div>
     </div>
@@ -542,7 +537,6 @@
             </div>
         </div>
         <div class="ranking-card-footer">
-            <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
             <a href="https://asana.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free →</a>
         </div>
     </div>
@@ -610,7 +604,6 @@
             </div>
         </div>
         <div class="ranking-card-footer">
-            <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
             <a href="https://clickup.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free →</a>
         </div>
     </div>
@@ -678,7 +671,6 @@
             </div>
         </div>
         <div class="ranking-card-footer">
-            <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
             <a href="https://notion.so" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free →</a>
         </div>
     </div>
@@ -746,7 +738,6 @@
             </div>
         </div>
         <div class="ranking-card-footer">
-            <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
             <a href="https://www.atlassian.com/software/jira" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free →</a>
         </div>
     </div>
@@ -815,7 +806,6 @@
             </div>
         </div>
         <div class="ranking-card-footer">
-            <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
             <a href="https://basecamp.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free →</a>
         </div>
     </div>
@@ -883,7 +873,6 @@
             </div>
         </div>
         <div class="ranking-card-footer">
-            <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
             <a href="https://www.smartsheet.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free →</a>
         </div>
     </div>
@@ -1043,52 +1032,41 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="logo"><div class="logo-icon">TS</div><span style="color:white;">ToolScore</span></div>
-                <p>Independent software reviews for people who build things. No pay-to-play. No sponsored rankings. Just honest analysis from engineers who actually use this stuff.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                        <div style="width:36px;height:36px;background:var(--indigo);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;">TS</div>
+                        <span style="font-size:18px;font-weight:800;color:white;">ToolScore</span>
+                    </div>
+                    <p>Independent software reviews for people who build things. No pay-to-play. No sponsored rankings. Just honest analysis from engineers who actually use this stuff.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <a href="/best-project-management-software/">Project Management</a>
+                    <a href="/best-crm-software/">CRM Software</a>
+                    <a href="/best-email-marketing-software/">Email Marketing</a>
+                    <a href="/best-accounting-software/">Accounting</a>
+                    <a href="/best-hr-software/">HR Software</a>
+                    <a href="/best-marketing-automation-software/">Marketing Automation</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Comparisons</h4>
+                    <a href="/compare/monday-vs-asana/">Monday vs Asana</a>
+                    <a href="/compare/clickup-vs-notion/">ClickUp vs Notion</a>
+                    <a href="/compare/jira-vs-asana/">Jira vs Asana</a>
+                    <a href="/compare/hubspot-vs-salesforce/">HubSpot vs Salesforce</a>
+                    <a href="/compare/mailchimp-vs-constant-contact/">Mailchimp vs Constant Contact</a>
+                    <a href="/compare/quickbooks-vs-xero/">QuickBooks vs Xero</a>
+                    <a href="/compare/activecampaign-vs-mailchimp/">ActiveCampaign vs Mailchimp</a>
+                    <a href="/compare/salesforce-vs-zoho/">Salesforce vs Zoho</a>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Categories</h4>
-                <a href="/best-project-management-software/">Project Management</a>
-                <a href="/best-crm-software/">CRM Software</a>
-                <span style="cursor:default;opacity:0.6">AI Tools</span>
-                <a href="/best-accounting-software/">Accounting</a>
-                <a href="/best-email-marketing-software/">Email Marketing</a>
-                <span style="cursor:default;opacity:0.6">Website Builders</span>
-            </div>
-            <div class="footer-col">
-                <h4>Popular Reviews</h4>
-                <span style="cursor:default;opacity:0.6">Monday.com</span>
-                <span style="cursor:default;opacity:0.6">Asana</span>
-                <span style="cursor:default;opacity:0.6">ClickUp</span>
-                <span style="cursor:default;opacity:0.6">Notion</span>
-                <span style="cursor:default;opacity:0.6">Jira</span>
-                <span style="cursor:default;opacity:0.6">Basecamp</span>
-            </div>
-            <div class="footer-col">
-                <h4>Comparisons</h4>
-                <a href="/compare/monday-vs-asana/">Monday vs Asana</a>
-                <span style="cursor:default;opacity:0.6">ClickUp vs Monday</span>
-                <a href="/compare/clickup-vs-notion/">Notion vs ClickUp</a>
-                <span style="cursor:default;opacity:0.6">Jira vs Monday</span>
-                <a href="/compare/jira-vs-asana/">Asana vs Jira</a>
-            </div>
-            <div class="footer-col">
-                <h4>About</h4>
-                <span style="cursor:default;opacity:0.6">About ToolScore</span>
-                <span style="cursor:default;opacity:0.6">Our Methodology</span>
-                <span style="cursor:default;opacity:0.6">Editorial Policy</span>
-                <span style="cursor:default;opacity:0.6">Contact</span>
-                <span style="cursor:default;opacity:0.6">Advertise</span>
+            <div class="footer-bottom">
+                &copy; 2026 ToolScore. All rights reserved. ToolScore is editorially independent. We may earn affiliate commissions when you purchase through our links, but this never affects our ratings or recommendations.
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 ToolScore. All rights reserved. ToolScore is editorially independent. We may earn affiliate commissions when you purchase through our links, but this never affects our ratings or recommendations. <span style="cursor:default;opacity:0.6">Disclosure</span> | <span style="cursor:default;opacity:0.6">Privacy</span> | <span style="cursor:default;opacity:0.6">Terms</span></p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 </body>
 </html>

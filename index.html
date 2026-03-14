@@ -157,7 +157,7 @@
 
         /* FOOTER */
         .footer { background: var(--slate-900); color: var(--slate-300); padding: 56px 0 28px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
         .footer-brand p { font-size: 13px; opacity: .6; line-height: 1.7; margin-top: 12px; }
         .footer-col h4 { font-size: 12px; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
         .footer-col a { display: block; font-size: 13px; padding: 3px 0; opacity: .5; transition: opacity .15s; }
@@ -176,7 +176,7 @@
             .hero h1 { font-size: 34px; }
             .nav-links { display: none; }
             .hero-search { flex-direction: column; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; }
             .review-grid { grid-template-columns: 1fr; }
             .vs-grid { grid-template-columns: 1fr; }
         }
@@ -193,13 +193,10 @@
             <span>ToolScore</span>
         </a>
         <div class="nav-links">
-            <span class="nav-link" style="cursor:default;opacity:0.6">Categories</span>
             <a href="/best-project-management-software/" class="nav-link">Reviews</a>
             <a href="/compare/monday-vs-asana/" class="nav-link">Comparisons</a>
             <a href="/best-crm-software/" class="nav-link">Guides</a>
-            <span class="nav-link" style="cursor:default;opacity:0.6">AI Tools</span>
         </div>
-        <span class="btn btn-primary" style="cursor:default;opacity:0.6">Submit a Tool</span>
     </div>
 </nav>
 
@@ -227,19 +224,19 @@
         <div class="cat-label">Browse by Category</div>
         <div class="cat-grid">
             <a href="/best-project-management-software/" class="cat-pill"><span class="emoji">&#128203;</span> Project Management</a>
-            <span class="cat-pill" style="cursor:default;opacity:0.6"><span class="emoji">&#129302;</span> AI Writing Tools</span>
+AI Writing Tools</span>
             <a href="/best-crm-software/" class="cat-pill"><span class="emoji">&#128200;</span> CRM Software</a>
             <a href="/best-accounting-software/" class="cat-pill"><span class="emoji">&#128176;</span> Accounting</a>
-            <span class="cat-pill" style="cursor:default;opacity:0.6"><span class="emoji">&#128172;</span> Team Communication</span>
-            <span class="cat-pill" style="cursor:default;opacity:0.6"><span class="emoji">&#127912;</span> Design Tools</span>
+Team Communication</span>
+Design Tools</span>
             <a href="/best-email-marketing-software/" class="cat-pill"><span class="emoji">&#128231;</span> Email Marketing</a>
-            <span class="cat-pill" style="cursor:default;opacity:0.6"><span class="emoji">&#128187;</span> Website Builders</span>
-            <span class="cat-pill" style="cursor:default;opacity:0.6"><span class="emoji">&#128274;</span> Cybersecurity</span>
-            <span class="cat-pill" style="cursor:default;opacity:0.6"><span class="emoji">&#128222;</span> VoIP / Phone</span>
+Website Builders</span>
+Cybersecurity</span>
+VoIP / Phone</span>
             <a href="/best-hr-software/" class="cat-pill"><span class="emoji">&#128101;</span> HR Software</a>
-            <span class="cat-pill" style="cursor:default;opacity:0.6"><span class="emoji">&#128736;</span> Dev Tools</span>
-            <span class="cat-pill" style="cursor:default;opacity:0.6"><span class="emoji">&#127909;</span> Video Editing</span>
-            <span class="cat-pill" style="cursor:default;opacity:0.6"><span class="emoji">&#128202;</span> Analytics</span>
+Dev Tools</span>
+Video Editing</span>
+Analytics</span>
         </div>
     </div>
 </section>
@@ -252,7 +249,7 @@
                 <h2>Best Project Management Software</h2>
                 <p>Our top picks for 2026, tested across 25 evaluation criteria.</p>
             </div>
-            <span style="font-size: 14px; font-weight: 600; color: var(--indigo); white-space: nowrap; cursor:default;">See all 18 reviews &rarr;</span>
+            <a href="/best-project-management-software/" style="font-size: 14px; font-weight: 600; color: var(--indigo); white-space: nowrap; text-decoration: none;">See all 18 reviews &rarr;</a>
         </div>
         <div class="review-grid">
             <!-- Monday.com -->
@@ -275,7 +272,6 @@
                     </div>
                 </div>
                 <div class="card-bot">
-                    <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
                     <a href="https://monday.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free &rarr;</a>
                 </div>
             </div>
@@ -300,7 +296,6 @@
                     </div>
                 </div>
                 <div class="card-bot">
-                    <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
                     <a href="https://asana.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free &rarr;</a>
                 </div>
             </div>
@@ -325,7 +320,6 @@
                     </div>
                 </div>
                 <div class="card-bot">
-                    <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
                     <a href="https://clickup.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free &rarr;</a>
                 </div>
             </div>
@@ -349,7 +343,6 @@
                     </div>
                 </div>
                 <div class="card-bot">
-                    <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
                     <a href="https://notion.so" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free &rarr;</a>
                 </div>
             </div>
@@ -365,7 +358,6 @@
                 <h2>Trending AI Tools</h2>
                 <p>The AI landscape changes weekly. We keep up so you don't have to.</p>
             </div>
-            <span style="font-size: 14px; font-weight: 600; color: var(--indigo); white-space: nowrap; cursor:default;">Browse all AI tools &rarr;</span>
         </div>
         <div class="review-grid">
             <div class="review-card">
@@ -383,7 +375,6 @@
                     </div>
                 </div>
                 <div class="card-bot">
-                    <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
                     <a href="https://chat.openai.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free &rarr;</a>
                 </div>
             </div>
@@ -402,7 +393,6 @@
                     </div>
                 </div>
                 <div class="card-bot">
-                    <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
                     <a href="https://jasper.ai" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free &rarr;</a>
                 </div>
             </div>
@@ -421,7 +411,6 @@
                     </div>
                 </div>
                 <div class="card-bot">
-                    <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
                     <a href="https://claude.ai" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free &rarr;</a>
                 </div>
             </div>
@@ -440,7 +429,6 @@
                     </div>
                 </div>
                 <div class="card-bot">
-                    <span class="btn btn-outline" style="cursor:default;opacity:0.6">Full Review</span>
                     <a href="https://surferseo.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer sponsored">Try Free &rarr;</a>
                 </div>
             </div>
@@ -509,15 +497,7 @@
                 <div class="vs-desc">Email marketing platforms compared. Freemium vs simplicity focused.</div>
                 <span class="vs-tag">Trending</span>
             </a>
-            <span class="vs-card" style="cursor:default;opacity:0.6">
-                <div class="vs-logos">
-                    <div class="vs-logo" style="background:#FF4A00;color:white;">Z</div>
-                    <div class="vs-badge">VS</div>
-                    <div class="vs-logo" style="background:#9B59B6;color:white;">M</div>
-                </div>
-                <div class="vs-title">Zapier vs Make</div>
-                <div class="vs-desc">Automation platforms compared. Zapier is simpler. Make is cheaper. Which wins?</div>
-                <span class="vs-tag">Popular</span>
+            
             </span>
         </div>
     </div>
@@ -539,17 +519,9 @@
                 <p>A decision framework based on team size, workflow type, and budget. Includes our 25-point evaluation scorecard.</p>
                 <span class="guide-link">Read Guide &rarr;</span>
             </a>
-            <span class="guide-card" style="cursor:default;opacity:0.6">
-                <div class="emoji">&#129302;</div>
-                <h3>The Business Guide to AI Tools in 2026</h3>
-                <p>Which AI tools actually save time vs. which are just hype? We tested 40 tools across real business workflows.</p>
-                <span class="guide-link">Read Guide &rarr;</span>
+            
             </span>
-            <span class="guide-card" style="cursor:default;opacity:0.6">
-                <div class="emoji">&#128176;</div>
-                <h3>SaaS Pricing Decoded: What You're Actually Paying</h3>
-                <p>Hidden costs, per-seat gotchas, and the real total cost of ownership for popular tools.</p>
-                <span class="guide-link">Read Guide &rarr;</span>
+            
             </span>
             <a href="/best-crm-software/" class="guide-card">
                 <div class="emoji">&#128200;</div>
@@ -575,52 +547,41 @@
 
 <!-- Footer -->
 <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="logo"><div class="logo-icon">TS</div><span style="color:white;">ToolScore</span></div>
-                <p>Independent software reviews for people who build things. No pay-to-play. No sponsored rankings. Just honest analysis from engineers who actually use this stuff.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                        <div style="width:36px;height:36px;background:var(--indigo);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;">TS</div>
+                        <span style="font-size:18px;font-weight:800;color:white;">ToolScore</span>
+                    </div>
+                    <p>Independent software reviews for people who build things. No pay-to-play. No sponsored rankings. Just honest analysis from engineers who actually use this stuff.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <a href="/best-project-management-software/">Project Management</a>
+                    <a href="/best-crm-software/">CRM Software</a>
+                    <a href="/best-email-marketing-software/">Email Marketing</a>
+                    <a href="/best-accounting-software/">Accounting</a>
+                    <a href="/best-hr-software/">HR Software</a>
+                    <a href="/best-marketing-automation-software/">Marketing Automation</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Comparisons</h4>
+                    <a href="/compare/monday-vs-asana/">Monday vs Asana</a>
+                    <a href="/compare/clickup-vs-notion/">ClickUp vs Notion</a>
+                    <a href="/compare/jira-vs-asana/">Jira vs Asana</a>
+                    <a href="/compare/hubspot-vs-salesforce/">HubSpot vs Salesforce</a>
+                    <a href="/compare/mailchimp-vs-constant-contact/">Mailchimp vs Constant Contact</a>
+                    <a href="/compare/quickbooks-vs-xero/">QuickBooks vs Xero</a>
+                    <a href="/compare/activecampaign-vs-mailchimp/">ActiveCampaign vs Mailchimp</a>
+                    <a href="/compare/salesforce-vs-zoho/">Salesforce vs Zoho</a>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Categories</h4>
-                <a href="/best-project-management-software/">Project Management</a>
-                <a href="/best-crm-software/">CRM Software</a>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">AI Tools</span>
-                <a href="/best-accounting-software/">Accounting</a>
-                <a href="/best-email-marketing-software/">Email Marketing</a>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">Website Builders</span>
-            </div>
-            <div class="footer-col">
-                <h4>Popular Reviews</h4>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">Monday.com</span>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">Asana</span>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">ClickUp</span>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">Notion</span>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">HubSpot</span>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">ChatGPT</span>
-            </div>
-            <div class="footer-col">
-                <h4>Comparisons</h4>
-                <a href="/compare/monday-vs-asana/">Monday vs Asana</a>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">ChatGPT vs Claude</span>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">Slack vs Teams</span>
-                <a href="/compare/clickup-vs-notion/">Notion vs ClickUp</a>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">Zapier vs Make</span>
-            </div>
-            <div class="footer-col">
-                <h4>About</h4>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">About ToolScore</span>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">Our Methodology</span>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">Editorial Policy</span>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">Contact</span>
-                <span style="display: block; font-size: 13px; padding: 3px 0; opacity: .5; cursor:default;">Advertise</span>
+            <div class="footer-bottom">
+                &copy; 2026 ToolScore. All rights reserved. ToolScore is editorially independent. We may earn affiliate commissions when you purchase through our links, but this never affects our ratings or recommendations.
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 ToolScore. All rights reserved. ToolScore is editorially independent. We may earn affiliate commissions when you purchase through our links, but this never affects our ratings or recommendations. <span style="cursor:default;">Disclosure</span> | <span style="cursor:default;">Privacy</span> | <span style="cursor:default;">Terms</span></p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 </body>
 </html>
