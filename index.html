@@ -539,10 +539,12 @@ Analytics</span>
     <div class="container">
         <h2>The ToolScore Weekly</h2>
         <p>One email per week. New tool launches, pricing changes, and honest takes. No sponsored content, ever.</p>
-        <div class="newsletter-form">
-            <input type="email" placeholder="your@email.com">
-            <button class="btn">Subscribe</button>
+        <div class="newsletter-form" id="nl-form">
+            <input type="email" id="nl-email" placeholder="your@email.com" required>
+            <button class="btn" id="nl-btn">Subscribe</button>
         </div>
+        <p id="nl-success" style="display:none;margin-top:12px;font-size:14px;opacity:0.9;">You're in. We'll send you the first issue soon.</p>
+        <p id="nl-error" style="display:none;margin-top:12px;font-size:14px;color:#fca5a5;">Please enter a valid email address.</p>
     </div>
 </section>
 
@@ -686,6 +688,48 @@ Analytics</span>
         if (!e.target.closest('.hero-search')) {
             results.style.display = 'none';
         }
+    });
+})();
+
+// Newsletter signup
+(function() {
+    const emailInput = document.getElementById('nl-email');
+    const nlBtn = document.getElementById('nl-btn');
+    const nlForm = document.getElementById('nl-form');
+    const nlSuccess = document.getElementById('nl-success');
+    const nlError = document.getElementById('nl-error');
+
+    if (!nlBtn) return;
+
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function handleSubscribe() {
+        const email = emailInput.value.trim();
+        nlError.style.display = 'none';
+
+        if (!isValidEmail(email)) {
+            nlError.style.display = 'block';
+            return;
+        }
+
+        // Store locally (will be replaced with real API later)
+        try {
+            const subs = JSON.parse(localStorage.getItem('ts_subscribers') || '[]');
+            if (!subs.includes(email)) {
+                subs.push(email);
+                localStorage.setItem('ts_subscribers', JSON.stringify(subs));
+            }
+        } catch(e) {}
+
+        nlForm.style.display = 'none';
+        nlSuccess.style.display = 'block';
+    }
+
+    nlBtn.addEventListener('click', handleSubscribe);
+    emailInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') { e.preventDefault(); handleSubscribe(); }
     });
 })();
 </script>
