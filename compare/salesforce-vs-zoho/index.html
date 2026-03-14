@@ -296,6 +296,18 @@
             .nav-links { display: none; }
             .related-grid { grid-template-columns: 1fr; }
         }
+    
+    .table-scroll-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -20px;
+      padding: 0 20px;
+    }
+    .table-scroll-wrapper table {
+      min-width: 500px;
+    }
+    
+    html, body { overflow-x: hidden; }
     </style>
 </head>
 <body>
@@ -402,7 +414,7 @@
         <div class="price-grid">
             <div>
                 <h3 style="margin-top: 0;">Salesforce CRM</h3>
-                <table class="price-table">
+                <div class="table-scroll-wrapper"><table class="price-table">
                     <tr>
                         <th>Plan</th>
                         <th>Per User/Month</th>
@@ -423,12 +435,12 @@
                         <td><strong>Unlimited</strong></td>
                         <td>$330/user</td>
                     </tr>
-                </table>
+                </table></div>
                 <p style="font-size: 13px; margin-top: 12px; color: var(--slate-600);">Per-user model means costs scale instantly. 10 users = $250/mo (Starter) to $3,300/mo (Unlimited). Requires admin overhead. Implementation: $50K-$200K.</p>
             </div>
             <div>
                 <h3 style="margin-top: 0;">Zoho CRM</h3>
-                <table class="price-table">
+                <div class="table-scroll-wrapper"><table class="price-table">
                     <tr>
                         <th>Plan</th>
                         <th>Per User/Month</th>
@@ -453,7 +465,7 @@
                         <td><strong>Ultimate</strong></td>
                         <td>$52/user</td>
                     </tr>
-                </table>
+                </table></div>
                 <p style="font-size: 13px; margin-top: 12px; color: var(--slate-600);">Fraction of Salesforce cost. 10 users = $140/mo (Standard) to $520/mo (Ultimate). Free tier supports 3 users. Rapid implementation: 1-2 weeks. No admin needed initially.</p>
             </div>
         </div>
@@ -560,7 +572,7 @@
     <!-- FEATURE TABLE -->
     <section class="detail-section" style="padding-bottom: 40px;">
         <h2>Feature Checklist: 20 Specific Capabilities</h2>
-        <table class="feature-table">
+        <div class="table-scroll-wrapper"><table class="feature-table">
             <thead>
                 <tr>
                     <th>Feature</th>
@@ -670,7 +682,7 @@
                     <td class="feature-check yes">✓</td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
     </section>
 
     <!-- FINAL VERDICT -->

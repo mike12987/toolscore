@@ -296,6 +296,18 @@
             .nav-links { display: none; }
             .related-grid { grid-template-columns: 1fr; }
         }
+    
+    .table-scroll-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -20px;
+      padding: 0 20px;
+    }
+    .table-scroll-wrapper table {
+      min-width: 500px;
+    }
+    
+    html, body { overflow-x: hidden; }
     </style>
 </head>
 <body>
@@ -403,7 +415,7 @@
         <div class="price-grid">
             <div>
                 <h3 style="margin-top: 0;">QuickBooks Online</h3>
-                <table class="price-table">
+                <div class="table-scroll-wrapper"><table class="price-table">
                     <tr>
                         <th>Plan</th>
                         <th>Cost</th>
@@ -424,12 +436,12 @@
                         <td><strong>Advanced</strong></td>
                         <td>$200/month</td>
                     </tr>
-                </table>
+                </table></div>
                 <p style="font-size: 13px; margin-top: 12px; color: var(--slate-600);">Simple Start: 1 user. Essentials/Plus: 3 users. Advanced: 5 users. Add $30-50/user per month for additional users. Payroll ($38-100/mo), Receipt Capture ($15/mo), and Mileage Tracking ($15/mo) are add-ons.</p>
             </div>
             <div>
                 <h3 style="margin-top: 0;">Xero</h3>
-                <table class="price-table">
+                <div class="table-scroll-wrapper"><table class="price-table">
                     <tr>
                         <th>Plan</th>
                         <th>Cost</th>
@@ -450,7 +462,7 @@
                         <td><strong>Payroll Add-on</strong></td>
                         <td>$79/month + per-employee</td>
                     </tr>
-                </table>
+                </table></div>
                 <p style="font-size: 13px; margin-top: 12px; color: var(--slate-600);">All plans: unlimited users. Payroll is add-on only ($79/mo + $5-10/employee per pay run). No receipt capture or mileage tracking built-in (use integrations). International multi-currency support built into all plans.</p>
             </div>
         </div>
@@ -560,7 +572,7 @@
     <!-- FEATURE TABLE -->
     <section class="detail-section" style="padding-bottom: 40px;">
         <h2>Feature Checklist: 20 Specific Capabilities</h2>
-        <table class="feature-table">
+        <div class="table-scroll-wrapper"><table class="feature-table">
             <thead>
                 <tr>
                     <th>Feature</th>
@@ -670,7 +682,7 @@
                     <td class="feature-check yes">✓</td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
     </section>
 
     <!-- FINAL VERDICT -->

@@ -296,6 +296,18 @@
             .nav-links { display: none; }
             .related-grid { grid-template-columns: 1fr; }
         }
+    
+    .table-scroll-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -20px;
+      padding: 0 20px;
+    }
+    .table-scroll-wrapper table {
+      min-width: 500px;
+    }
+    
+    html, body { overflow-x: hidden; }
     </style>
 </head>
 <body>
@@ -403,7 +415,7 @@
         <div class="price-grid">
             <div>
                 <h3 style="margin-top: 0;">ActiveCampaign</h3>
-                <table class="price-table">
+                <div class="table-scroll-wrapper"><table class="price-table">
                     <tr>
                         <th>Plan</th>
                         <th>Cost/Month</th>
@@ -424,12 +436,12 @@
                         <td><strong>Enterprise</strong></td>
                         <td>$145+</td>
                     </tr>
-                </table>
+                </table></div>
                 <p style="font-size: 13px; margin-top: 12px; color: var(--slate-600);">Flat-rate pricing (not contact-based). All tiers include unlimited contacts, built-in CRM, advanced automation, and 900+ integrations. No free tier. Starter is cheapest entry point but limited features.</p>
             </div>
             <div>
                 <h3 style="margin-top: 0;">Mailchimp</h3>
-                <table class="price-table">
+                <div class="table-scroll-wrapper"><table class="price-table">
                     <tr>
                         <th>Plan</th>
                         <th>Cost/Month</th>
@@ -450,7 +462,7 @@
                         <td><strong>Premium</strong></td>
                         <td>$350</td>
                     </tr>
-                </table>
+                </table></div>
                 <p style="font-size: 13px; margin-top: 12px; color: var(--slate-600);">Contact-based pricing (Free: 500 contacts, unlimited emails). Essentials: 5,000 contacts. Standard: 25,000 contacts. Premium: unlimited. Free tier is production-ready for startups and small businesses.</p>
             </div>
         </div>
@@ -568,7 +580,7 @@
     <!-- FEATURE TABLE -->
     <section class="detail-section" style="padding-bottom: 40px;">
         <h2>Feature Checklist: 20 Specific Capabilities</h2>
-        <table class="feature-table">
+        <div class="table-scroll-wrapper"><table class="feature-table">
             <thead>
                 <tr>
                     <th>Feature</th>
@@ -678,7 +690,7 @@
                     <td class="feature-check yes">✓</td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
     </section>
 
     <!-- FINAL VERDICT -->

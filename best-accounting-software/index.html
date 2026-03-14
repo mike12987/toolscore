@@ -648,6 +648,18 @@
                 grid-template-columns: 1fr;
             }
         }
+    
+    .table-scroll-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -20px;
+      padding: 0 20px;
+    }
+    .table-scroll-wrapper table {
+      min-width: 500px;
+    }
+    
+    html, body { overflow-x: hidden; }
     </style>
 </head>
 <body>
@@ -1110,7 +1122,7 @@
     <!-- Comparison Table -->
     <section class="container comparison-section">
         <h2 class="section-title">Side-by-Side Comparison</h2>
-        <table class="comparison-table">
+        <div class="table-scroll-wrapper"><table class="comparison-table">
             <thead>
                 <tr>
                     <th>Tool</th>
@@ -1187,7 +1199,7 @@
                     <td>Yes - iOS & Android</td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
     </section>
 
     <!-- Methodology -->

@@ -675,6 +675,18 @@
             max-width: 900px;
             margin: 0 auto;
         }
+    
+    .table-scroll-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -20px;
+      padding: 0 20px;
+    }
+    .table-scroll-wrapper table {
+      min-width: 500px;
+    }
+    
+    html, body { overflow-x: hidden; }
     </style>
 </head>
 <body>
@@ -860,7 +872,7 @@
             <div class="section-title">
                 <h2><span>Feature Comparison Checklist</span></h2>
             </div>
-            <table class="feature-table">
+            <div class="table-scroll-wrapper"><table class="feature-table">
                 <thead>
                     <tr>
                         <th style="width: 35%;">Feature</th>
@@ -991,7 +1003,7 @@
                         <td>Both emerging</td>
                     </tr>
                 </tbody>
-            </table>
+            </table></div>
         </section>
 
         <!-- Pricing Comparison -->

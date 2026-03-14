@@ -278,6 +278,18 @@
             .detail-section { padding: 24px; }
             .nav-links { display: none; }
         }
+    
+    .table-scroll-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -20px;
+      padding: 0 20px;
+    }
+    .table-scroll-wrapper table {
+      min-width: 500px;
+    }
+    
+    html, body { overflow-x: hidden; }
     </style>
 </head>
 <body>
@@ -373,7 +385,7 @@
         <div class="price-grid">
             <div>
                 <h3 style="margin-top: 0;">Monday.com</h3>
-                <table class="price-table">
+                <div class="table-scroll-wrapper"><table class="price-table">
                     <tr>
                         <th>Plan</th>
                         <th>Per Seat/Month</th>
@@ -398,11 +410,11 @@
                         <td><strong>Enterprise</strong></td>
                         <td>Custom</td>
                     </tr>
-                </table>
+                </table></div>
             </div>
             <div>
                 <h3 style="margin-top: 0;">Asana</h3>
-                <table class="price-table">
+                <div class="table-scroll-wrapper"><table class="price-table">
                     <tr>
                         <th>Plan</th>
                         <th>Per Seat/Month</th>
@@ -427,7 +439,7 @@
                         <td><strong>Enterprise</strong></td>
                         <td>Custom</td>
                     </tr>
-                </table>
+                </table></div>
             </div>
         </div>
 
@@ -518,7 +530,7 @@
     <!-- FEATURE TABLE -->
     <section class="detail-section" style="padding-bottom: 40px;">
         <h2>Feature Checklist: 20 Specific Capabilities</h2>
-        <table class="feature-table">
+        <div class="table-scroll-wrapper"><table class="feature-table">
             <thead>
                 <tr>
                     <th>Feature</th>
@@ -628,7 +640,7 @@
                     <td class="feature-check yes">✓</td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
     </section>
 
     <!-- FINAL VERDICT -->
