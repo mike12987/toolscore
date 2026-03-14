@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolScore — Independent Software Reviews & Comparisons for Business</title>
+    <meta name="description" content="Cut through the noise. ToolScore provides in-depth, unbiased reviews of business software and AI tools — tested by engineers, not marketers. Find the right tool, fast.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://toolscore.io/">
+
+    <meta property="og:title" content="ToolScore — Independent Software Reviews for Business">
+    <meta property="og:description" content="In-depth, unbiased reviews of business software and AI tools. Tested by engineers, not marketers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolscore.io/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ToolScore",
+        "url": "https://toolscore.io/",
+        "description": "Independent software reviews and comparisons for business",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://toolscore.io/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: #0f172a; line-height: 1.6; background: #fff; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        :root {
+            --indigo: #4F46E5;
+            --indigo-dark: #3730A3;
+            --indigo-light: #EEF2FF;
+            --violet: #7C3AED;
+            --emerald: #059669;
+            --amber: #F59E0B;
+            --amber-light: #FEF3C7;
+            --slate-50: #F8FAFC;
+            --slate-100: #F1F5F9;
+            --slate-200: #E2E8F0;
+            --slate-300: #CBD5E1;
+            --slate-500: #64748B;
+            --slate-700: #334155;
+            --slate-900: #0F172A;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --shadow: 0 1px 3px rgba(0,0,0,.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+            --shadow-lg: 0 12px 32px rgba(0,0,0,.1);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* NAV */
+        .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--slate-200); padding: 14px 0; }
+        .nav-inner { display: flex; align-items: center; gap: 32px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; }
+        .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--indigo), var(--violet)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 14px; }
+        .nav-links { display: flex; gap: 4px; flex: 1; }
+        .nav-link { padding: 8px 14px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; color: var(--slate-700); transition: all .15s; }
+        .nav-link:hover { color: var(--indigo); background: var(--indigo-light); }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: var(--radius-sm); font-weight: 600; font-size: 14px; border: 2px solid transparent; cursor: pointer; transition: all .15s; }
+        .btn-primary { background: var(--indigo); color: white; }
+        .btn-primary:hover { background: var(--indigo-dark); }
+        .btn-outline { background: transparent; color: var(--indigo); border-color: var(--indigo); }
+        .btn-outline:hover { background: var(--indigo); color: white; }
+        .btn-ghost { background: transparent; color: var(--slate-700); border-color: var(--slate-200); }
+        .btn-ghost:hover { border-color: var(--indigo); color: var(--indigo); }
+        .btn-lg { padding: 14px 28px; font-size: 16px; }
+
+        /* HERO */
+        .hero { padding: 80px 0 60px; background: linear-gradient(180deg, var(--indigo-light) 0%, #fff 100%); }
+        .hero-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: white; border: 1px solid var(--slate-200); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; color: var(--slate-700); margin-bottom: 24px; box-shadow: var(--shadow); }
+        .hero-badge .dot { width: 6px; height: 6px; background: var(--emerald); border-radius: 50%; }
+        .hero h1 { font-size: 52px; font-weight: 900; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 20px; }
+        .hero h1 span { background: linear-gradient(135deg, var(--indigo), var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-sub { font-size: 18px; color: var(--slate-500); max-width: 540px; margin: 0 auto 36px; line-height: 1.7; }
+        .hero-search { display: flex; gap: 8px; max-width: 520px; margin: 0 auto; }
+        .hero-search input { flex: 1; padding: 14px 18px; border: 2px solid var(--slate-200); border-radius: var(--radius-sm); font-size: 15px; outline: none; transition: border .15s; }
+        .hero-search input:focus { border-color: var(--indigo); }
+        .hero-search input::placeholder { color: var(--slate-300); }
+
+        /* CATEGORY PILLS */
+        .categories { padding: 48px 0; }
+        .cat-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--slate-500); text-align: center; margin-bottom: 16px; }
+        .cat-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .cat-pill { display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: white; border: 1px solid var(--slate-200); border-radius: 24px; font-size: 14px; font-weight: 500; transition: all .15s; }
+        .cat-pill:hover { border-color: var(--indigo); color: var(--indigo); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .cat-pill .emoji { font-size: 16px; }
+
+        /* FEATURED REVIEWS */
+        .section { padding: 64px 0; }
+        .bg-slate { background: var(--slate-50); }
+        .section-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; }
+        .section-head h2 { font-size: 28px; font-weight: 800; }
+        .section-head p { font-size: 15px; color: var(--slate-500); margin-top: 4px; }
+        .section-head a { font-size: 14px; font-weight: 600; color: var(--indigo); white-space: nowrap; }
+
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .review-card { background: white; border: 1px solid var(--slate-200); border-radius: var(--radius); overflow: hidden; transition: all .15s; display: flex; flex-direction: column; }
+        .review-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+        .card-badge { position: absolute; top: 12px; left: 12px; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: .02em; }
+        .badge-pick { background: var(--amber-light); color: #92400E; }
+        .badge-best { background: var(--indigo-light); color: var(--indigo); }
+        .card-top { padding: 24px 24px 0; display: flex; align-items: center; gap: 14px; position: relative; }
+        .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; flex-shrink: 0; }
+        .card-top-text h3 { font-size: 17px; font-weight: 700; }
+        .card-top-text .card-cat { font-size: 12px; color: var(--slate-500); font-weight: 500; }
+        .card-mid { padding: 16px 24px; flex: 1; }
+        .card-mid p { font-size: 14px; color: var(--slate-700); line-height: 1.6; }
+        .card-scores { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+        .mini-score { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        .mini-score .val { font-size: 15px; font-weight: 800; color: var(--indigo); }
+        .mini-score .lab { font-size: 10px; font-weight: 600; color: var(--slate-500); text-transform: uppercase; letter-spacing: .04em; }
+        .card-bot { padding: 16px 24px; border-top: 1px solid var(--slate-100); display: flex; gap: 8px; }
+        .card-bot .btn { flex: 1; justify-content: center; font-size: 13px; padding: 8px 12px; }
+
+        /* VS COMPARISONS */
+        .vs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .vs-card { background: white; border: 1px solid var(--slate-200); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 14px; transition: all .15s; }
+        .vs-card:hover { box-shadow: var(--shadow-md); border-color: var(--indigo); }
+        .vs-logos { display: flex; align-items: center; justify-content: center; gap: 16px; }
+        .vs-logo { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; }
+        .vs-badge { background: var(--slate-100); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; color: var(--slate-500); flex-shrink: 0; }
+        .vs-title { font-size: 16px; font-weight: 700; text-align: center; }
+        .vs-desc { font-size: 13px; color: var(--slate-500); text-align: center; }
+        .vs-tag { display: inline-block; background: var(--slate-100); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; color: var(--slate-500); align-self: center; }
+
+        /* GUIDES */
+        .guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+        .guide-card { background: white; border: 1px solid var(--slate-200); border-radius: var(--radius); padding: 24px; transition: all .15s; }
+        .guide-card:hover { box-shadow: var(--shadow-md); border-color: var(--indigo); }
+        .guide-card .emoji { font-size: 28px; margin-bottom: 12px; }
+        .guide-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+        .guide-card p { font-size: 13px; color: var(--slate-500); line-height: 1.6; margin-bottom: 10px; }
+        .guide-link { font-size: 13px; font-weight: 600; color: var(--indigo); }
+
+        /* NEWSLETTER */
+        .newsletter { background: linear-gradient(135deg, var(--indigo-dark), var(--violet)); color: white; padding: 64px 0; text-align: center; }
+        .newsletter h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+        .newsletter p { font-size: 16px; opacity: .85; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+        .newsletter-form { display: flex; gap: 8px; max-width: 440px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; padding: 14px 18px; border: none; border-radius: var(--radius-sm); font-size: 15px; outline: none; }
+        .newsletter-form .btn { background: var(--amber); color: var(--slate-900); border: none; }
+        .newsletter-form .btn:hover { background: #D97706; }
+
+        /* FOOTER */
+        .footer { background: var(--slate-900); color: var(--slate-300); padding: 56px 0 28px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-brand p { font-size: 13px; opacity: .6; line-height: 1.7; margin-top: 12px; }
+        .footer-col h4 { font-size: 12px; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
+        .footer-col a { display: block; font-size: 13px; padding: 3px 0; opacity: .5; transition: opacity .15s; }
+        .footer-col a:hover { opacity: 1; color: var(--amber); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 20px; font-size: 12px; opacity: .4; }
+        .footer-bottom a { color: var(--amber); opacity: 1; }
+
+        /* TRUST BAR */
+        .trust-bar { display: flex; gap: 32px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+        .trust-stat { text-align: center; }
+        .trust-stat .num { font-size: 28px; font-weight: 900; color: var(--indigo); }
+        .trust-stat .lab { font-size: 12px; color: var(--slate-500); font-weight: 500; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 34px; }
+            .nav-links { display: none; }
+            .hero-search { flex-direction: column; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .review-grid { grid-template-columns: 1fr; }
+            .vs-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="container nav-inner">
+        <a href="/" class="logo">
+            <div class="logo-icon">TS</div>
+            <span>ToolScore</span>
+        </a>
+        <div class="nav-links">
+            <a href="#" class="nav-link">Categories</a>
+            <a href="#" class="nav-link">Reviews</a>
+            <a href="#" class="nav-link">Comparisons</a>
+            <a href="#" class="nav-link">Guides</a>
+            <a href="#" class="nav-link">AI Tools</a>
+        </div>
+        <a href="#" class="btn btn-primary">Submit a Tool</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge"><span class="dot"></span> 850+ tools reviewed &amp; tested</div>
+        <h1>Find the right software.<br><span>Skip the marketing BS.</span></h1>
+        <p class="hero-sub">In-depth reviews of business software and AI tools, tested by engineers. Real benchmarks, real pricing, real opinions.</p>
+        <div class="hero-search">
+            <input type="text" placeholder="Search tools, categories, or comparisons...">
+            <button class="btn btn-primary">Search</button>
+        </div>
+        <div class="trust-bar">
+            <div class="trust-stat"><div class="num">850+</div><div class="lab">Tools Reviewed</div></div>
+            <div class="trust-stat"><div class="num">42</div><div class="lab">Categories</div></div>
+            <div class="trust-stat"><div class="num">180+</div><div class="lab">Head-to-Head Comparisons</div></div>
+            <div class="trust-stat"><div class="num">0</div><div class="lab">Pay-to-Play Reviews</div></div>
+        </div>
+    </div>
+</header>
+
+<!-- Category Pills -->
+<section class="categories">
+    <div class="container">
+        <div class="cat-label">Browse by Category</div>
+        <div class="cat-grid">
+            <a href="#" class="cat-pill"><span class="emoji">&#128203;</span> Project Management</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#129302;</span> AI Writing Tools</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#128200;</span> CRM Software</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#128176;</span> Accounting</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#128172;</span> Team Communication</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#127912;</span> Design Tools</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#128231;</span> Email Marketing</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#128187;</span> Website Builders</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#128274;</span> Cybersecurity</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#128222;</span> VoIP / Phone</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#128101;</span> HR Software</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#128736;</span> Dev Tools</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#127909;</span> Video Editing</a>
+            <a href="#" class="cat-pill"><span class="emoji">&#128202;</span> Analytics</a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Reviews: Project Management -->
+<section class="section bg-slate">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <h2>Best Project Management Software</h2>
+                <p>Our top picks for 2026, tested across 25 evaluation criteria.</p>
+            </div>
+            <a href="#">See all 18 reviews &rarr;</a>
+        </div>
+        <div class="review-grid">
+            <!-- Monday.com -->
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="card-badge badge-pick">Editor's Pick</div>
+                    <div class="card-icon" style="background:linear-gradient(135deg,#FF3D57,#FF007A);color:white;">M</div>
+                    <div class="card-top-text">
+                        <h3>Monday.com</h3>
+                        <span class="card-cat">Project Management</span>
+                    </div>
+                </div>
+                <div class="card-mid">
+                    <p>The most visually intuitive PM tool on the market. Excels at cross-functional work with 200+ templates and powerful automations. Best for mid-size teams that want flexibility without Jira-level complexity.</p>
+                    <div class="card-scores">
+                        <div class="mini-score"><span class="val">9.2</span><span class="lab">Overall</span></div>
+                        <div class="mini-score"><span class="val">9.5</span><span class="lab">Ease of Use</span></div>
+                        <div class="mini-score"><span class="val">8.8</span><span class="lab">Features</span></div>
+                        <div class="mini-score"><span class="val">8.4</span><span class="lab">Pricing</span></div>
+                    </div>
+                </div>
+                <div class="card-bot">
+                    <a href="#" class="btn btn-outline">Full Review</a>
+                    <a href="#" class="btn btn-primary">Try Free &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Asana -->
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="card-badge badge-best">Best for Teams</div>
+                    <div class="card-icon" style="background:linear-gradient(135deg,#F06A6A,#F9A825);color:white;">A</div>
+                    <div class="card-top-text">
+                        <h3>Asana</h3>
+                        <span class="card-cat">Project Management</span>
+                    </div>
+                </div>
+                <div class="card-mid">
+                    <p>The gold standard for task management and team workflows. Asana's Goals and Portfolios features give leadership real visibility. Weaker on resource management vs. Monday, but cleaner for pure task work.</p>
+                    <div class="card-scores">
+                        <div class="mini-score"><span class="val">9.0</span><span class="lab">Overall</span></div>
+                        <div class="mini-score"><span class="val">9.3</span><span class="lab">Ease of Use</span></div>
+                        <div class="mini-score"><span class="val">9.0</span><span class="lab">Features</span></div>
+                        <div class="mini-score"><span class="val">8.6</span><span class="lab">Pricing</span></div>
+                    </div>
+                </div>
+                <div class="card-bot">
+                    <a href="#" class="btn btn-outline">Full Review</a>
+                    <a href="#" class="btn btn-primary">Try Free &rarr;</a>
+                </div>
+            </div>
+
+            <!-- ClickUp -->
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="card-badge badge-best">Best Value</div>
+                    <div class="card-icon" style="background:linear-gradient(135deg,#7B68EE,#49CCF9);color:white;">C</div>
+                    <div class="card-top-text">
+                        <h3>ClickUp</h3>
+                        <span class="card-cat">Project Management</span>
+                    </div>
+                </div>
+                <div class="card-mid">
+                    <p>The Swiss Army knife of PM tools — does everything, often for free. Built-in docs, whiteboards, goals, time tracking, and now AI. Feature-rich to the point of overwhelming, but unbeatable on price-to-feature ratio.</p>
+                    <div class="card-scores">
+                        <div class="mini-score"><span class="val">8.8</span><span class="lab">Overall</span></div>
+                        <div class="mini-score"><span class="val">7.8</span><span class="lab">Ease of Use</span></div>
+                        <div class="mini-score"><span class="val">9.6</span><span class="lab">Features</span></div>
+                        <div class="mini-score"><span class="val">9.5</span><span class="lab">Pricing</span></div>
+                    </div>
+                </div>
+                <div class="card-bot">
+                    <a href="#" class="btn btn-outline">Full Review</a>
+                    <a href="#" class="btn btn-primary">Try Free &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Notion -->
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="card-icon" style="background:#000;color:white;">N</div>
+                    <div class="card-top-text">
+                        <h3>Notion</h3>
+                        <span class="card-cat">Project Management / Wiki</span>
+                    </div>
+                </div>
+                <div class="card-mid">
+                    <p>Part PM tool, part wiki, part database — Notion is an all-in-one workspace that rewards power users. Incredible for documentation-heavy teams. Less structured than dedicated PM tools.</p>
+                    <div class="card-scores">
+                        <div class="mini-score"><span class="val">8.7</span><span class="lab">Overall</span></div>
+                        <div class="mini-score"><span class="val">8.5</span><span class="lab">Ease of Use</span></div>
+                        <div class="mini-score"><span class="val">9.2</span><span class="lab">Features</span></div>
+                        <div class="mini-score"><span class="val">9.0</span><span class="lab">Pricing</span></div>
+                    </div>
+                </div>
+                <div class="card-bot">
+                    <a href="#" class="btn btn-outline">Full Review</a>
+                    <a href="#" class="btn btn-primary">Try Free &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AI Tools Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <h2>Trending AI Tools</h2>
+                <p>The AI landscape changes weekly. We keep up so you don't have to.</p>
+            </div>
+            <a href="#">Browse all AI tools &rarr;</a>
+        </div>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="card-badge badge-pick">Top Rated</div>
+                    <div class="card-icon" style="background:#10A37F;color:white;">G</div>
+                    <div class="card-top-text"><h3>ChatGPT for Teams</h3><span class="card-cat">AI Assistant / Enterprise</span></div>
+                </div>
+                <div class="card-mid">
+                    <p>OpenAI's team offering gives you GPT-4o with workspace management, shared prompts, and admin controls. The benchmark against which every AI tool is measured.</p>
+                    <div class="card-scores">
+                        <div class="mini-score"><span class="val">9.4</span><span class="lab">Overall</span></div>
+                        <div class="mini-score"><span class="val">9.0</span><span class="lab">Quality</span></div>
+                        <div class="mini-score"><span class="val">7.5</span><span class="lab">Pricing</span></div>
+                    </div>
+                </div>
+                <div class="card-bot">
+                    <a href="#" class="btn btn-outline">Full Review</a>
+                    <a href="#" class="btn btn-primary">Try Free &rarr;</a>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="card-icon" style="background:#5436DA;color:white;">J</div>
+                    <div class="card-top-text"><h3>Jasper AI</h3><span class="card-cat">AI Writing / Marketing</span></div>
+                </div>
+                <div class="card-mid">
+                    <p>Purpose-built for marketing teams. Brand voice training, campaign workflows, and team collaboration features that generic AI tools lack. Expensive, but saves serious time at scale.</p>
+                    <div class="card-scores">
+                        <div class="mini-score"><span class="val">8.6</span><span class="lab">Overall</span></div>
+                        <div class="mini-score"><span class="val">8.8</span><span class="lab">Quality</span></div>
+                        <div class="mini-score"><span class="val">7.0</span><span class="lab">Pricing</span></div>
+                    </div>
+                </div>
+                <div class="card-bot">
+                    <a href="#" class="btn btn-outline">Full Review</a>
+                    <a href="#" class="btn btn-primary">Try Free &rarr;</a>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="card-icon" style="background:#1a1a2e;color:#F59E0B;">C</div>
+                    <div class="card-top-text"><h3>Claude for Work</h3><span class="card-cat">AI Assistant / Enterprise</span></div>
+                </div>
+                <div class="card-mid">
+                    <p>Anthropic's business tier brings Claude's exceptional reasoning and 200K context window to teams. Standout for long document analysis, coding, and nuanced tasks. The thinking person's AI.</p>
+                    <div class="card-scores">
+                        <div class="mini-score"><span class="val">9.3</span><span class="lab">Overall</span></div>
+                        <div class="mini-score"><span class="val">9.5</span><span class="lab">Quality</span></div>
+                        <div class="mini-score"><span class="val">8.2</span><span class="lab">Pricing</span></div>
+                    </div>
+                </div>
+                <div class="card-bot">
+                    <a href="#" class="btn btn-outline">Full Review</a>
+                    <a href="#" class="btn btn-primary">Try Free &rarr;</a>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="card-top">
+                    <div class="card-icon" style="background:linear-gradient(135deg,#FF6B6B,#FFA06B);color:white;">S</div>
+                    <div class="card-top-text"><h3>Surfer SEO</h3><span class="card-cat">AI SEO / Content Optimization</span></div>
+                </div>
+                <div class="card-mid">
+                    <p>AI-powered content optimization that analyzes top-ranking pages and tells you exactly what to write. Essential for content teams targeting organic traffic. Works alongside any AI writer.</p>
+                    <div class="card-scores">
+                        <div class="mini-score"><span class="val">8.5</span><span class="lab">Overall</span></div>
+                        <div class="mini-score"><span class="val">8.7</span><span class="lab">Quality</span></div>
+                        <div class="mini-score"><span class="val">7.8</span><span class="lab">Pricing</span></div>
+                    </div>
+                </div>
+                <div class="card-bot">
+                    <a href="#" class="btn btn-outline">Full Review</a>
+                    <a href="#" class="btn btn-primary">Try Free &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comparisons -->
+<section class="section bg-slate">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <h2>Head-to-Head Comparisons</h2>
+                <p>The matchups everyone searches for, with data that actually helps you decide.</p>
+            </div>
+            <a href="#">All comparisons &rarr;</a>
+        </div>
+        <div class="vs-grid">
+            <a href="#" class="vs-card">
+                <div class="vs-logos">
+                    <div class="vs-logo" style="background:linear-gradient(135deg,#FF3D57,#FF007A);color:white;">M</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="vs-logo" style="background:linear-gradient(135deg,#F06A6A,#F9A825);color:white;">A</div>
+                </div>
+                <div class="vs-title">Monday.com vs Asana</div>
+                <div class="vs-desc">The two most popular PM tools for mid-size teams. We tested both for 6 months.</div>
+                <span class="vs-tag">Most Searched</span>
+            </a>
+            <a href="#" class="vs-card">
+                <div class="vs-logos">
+                    <div class="vs-logo" style="background:#000;color:white;">N</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="vs-logo" style="background:linear-gradient(135deg,#7B68EE,#49CCF9);color:white;">C</div>
+                </div>
+                <div class="vs-title">Notion vs ClickUp</div>
+                <div class="vs-desc">All-in-one workspace showdown. Which actually replaces the most tools?</div>
+                <span class="vs-tag">Trending</span>
+            </a>
+            <a href="#" class="vs-card">
+                <div class="vs-logos">
+                    <div class="vs-logo" style="background:#10A37F;color:white;">G</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="vs-logo" style="background:#1a1a2e;color:#F59E0B;">C</div>
+                </div>
+                <div class="vs-title">ChatGPT vs Claude</div>
+                <div class="vs-desc">We ran both through 50 real business tasks. The results might surprise you.</div>
+                <span class="vs-tag">Most Searched</span>
+            </a>
+            <a href="#" class="vs-card">
+                <div class="vs-logos">
+                    <div class="vs-logo" style="background:#0052CC;color:white;">J</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="vs-logo" style="background:linear-gradient(135deg,#FF3D57,#FF007A);color:white;">M</div>
+                </div>
+                <div class="vs-title">Jira vs Monday.com</div>
+                <div class="vs-desc">Engineering tool vs. business tool. When does Jira's complexity pay off?</div>
+                <span class="vs-tag">Popular</span>
+            </a>
+            <a href="#" class="vs-card">
+                <div class="vs-logos">
+                    <div class="vs-logo" style="background:#4A154B;color:white;">S</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="vs-logo" style="background:#464EB8;color:white;">T</div>
+                </div>
+                <div class="vs-title">Slack vs Microsoft Teams</div>
+                <div class="vs-desc">The eternal debate. We compared pricing, features, and integrations side-by-side.</div>
+                <span class="vs-tag">Classic</span>
+            </a>
+            <a href="#" class="vs-card">
+                <div class="vs-logos">
+                    <div class="vs-logo" style="background:#FF4A00;color:white;">Z</div>
+                    <div class="vs-badge">VS</div>
+                    <div class="vs-logo" style="background:#9B59B6;color:white;">M</div>
+                </div>
+                <div class="vs-title">Zapier vs Make</div>
+                <div class="vs-desc">Automation platforms compared. Zapier is simpler. Make is cheaper. Which wins?</div>
+                <span class="vs-tag">Popular</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Guides -->
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <h2>Buying Guides & Resources</h2>
+                <p>Make better software decisions with data, not gut feelings.</p>
+            </div>
+        </div>
+        <div class="guide-grid">
+            <a href="#" class="guide-card">
+                <div class="emoji">&#128203;</div>
+                <h3>How to Choose Project Management Software</h3>
+                <p>A decision framework based on team size, workflow type, and budget. Includes our 25-point evaluation scorecard.</p>
+                <span class="guide-link">Read Guide &rarr;</span>
+            </a>
+            <a href="#" class="guide-card">
+                <div class="emoji">&#129302;</div>
+                <h3>The Business Guide to AI Tools in 2026</h3>
+                <p>Which AI tools actually save time vs. which are just hype? We tested 40 tools across real business workflows.</p>
+                <span class="guide-link">Read Guide &rarr;</span>
+            </a>
+            <a href="#" class="guide-card">
+                <div class="emoji">&#128176;</div>
+                <h3>SaaS Pricing Decoded: What You're Actually Paying</h3>
+                <p>Hidden costs, per-seat gotchas, and the real total cost of ownership for popular tools.</p>
+                <span class="guide-link">Read Guide &rarr;</span>
+            </a>
+            <a href="#" class="guide-card">
+                <div class="emoji">&#128200;</div>
+                <h3>CRM Software Buyer's Guide</h3>
+                <p>Salesforce vs HubSpot vs Pipedrive vs everything else. Matched to your sales process and team size.</p>
+                <span class="guide-link">Read Guide &rarr;</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+    <div class="container">
+        <h2>The ToolScore Weekly</h2>
+        <p>One email per week. New tool launches, pricing changes, and honest takes. No sponsored content, ever.</p>
+        <div class="newsletter-form">
+            <input type="email" placeholder="your@email.com">
+            <button class="btn">Subscribe</button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo"><div class="logo-icon">TS</div><span style="color:white;">ToolScore</span></div>
+                <p>Independent software reviews for people who build things. No pay-to-play. No sponsored rankings. Just honest analysis from engineers who actually use this stuff.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <a href="#">Project Management</a>
+                <a href="#">CRM Software</a>
+                <a href="#">AI Tools</a>
+                <a href="#">Accounting</a>
+                <a href="#">Email Marketing</a>
+                <a href="#">Website Builders</a>
+            </div>
+            <div class="footer-col">
+                <h4>Popular Reviews</h4>
+                <a href="#">Monday.com</a>
+                <a href="#">Asana</a>
+                <a href="#">ClickUp</a>
+                <a href="#">Notion</a>
+                <a href="#">HubSpot</a>
+                <a href="#">ChatGPT</a>
+            </div>
+            <div class="footer-col">
+                <h4>Comparisons</h4>
+                <a href="#">Monday vs Asana</a>
+                <a href="#">ChatGPT vs Claude</a>
+                <a href="#">Slack vs Teams</a>
+                <a href="#">Notion vs ClickUp</a>
+                <a href="#">Zapier vs Make</a>
+            </div>
+            <div class="footer-col">
+                <h4>About</h4>
+                <a href="#">About ToolScore</a>
+                <a href="#">Our Methodology</a>
+                <a href="#">Editorial Policy</a>
+                <a href="#">Contact</a>
+                <a href="#">Advertise</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ToolScore. All rights reserved. ToolScore is editorially independent. We may earn affiliate commissions when you purchase through our links, but this never affects our ratings or recommendations. <a href="#">Disclosure</a> | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
